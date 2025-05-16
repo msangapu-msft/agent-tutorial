@@ -6,3 +6,6 @@ services:
     project: ./src
     language: php
     host: appservice
+hooks:
+  postprovision:
+    shell: ./azure/hooks/postprovision.sh

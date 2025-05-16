@@ -41,7 +41,7 @@ resource deploymentSlot 'Microsoft.Web/sites/slots@2022-09-01' = {
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
-      linuxFxVersion: 'PHP|8.2'
+      linuxFxVersion: 'PHP|8.4'
       appCommandLine: '/home/site/wwwroot/startup.sh'
     }
   }
