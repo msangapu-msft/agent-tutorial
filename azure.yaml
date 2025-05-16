@@ -5,7 +5,6 @@ services:
   web:
     project: ./src
     host: appservice
-    language: custom
 hooks:
   postprovision:
     shell: ./azure/hooks/postprovision.sh
