@@ -4,7 +4,6 @@ metadata:
 services:
   web:
     project: ./src
-    language: php
     host: appservice
 hooks:
   postprovision:
