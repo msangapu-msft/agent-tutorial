@@ -1,0 +1,8 @@
+name: app-service-agent-tutorial
+metadata:
+  template: local
+services:
+  web:
+    project: ./src
+    language: php
+    host: appservice
