@@ -4,6 +4,7 @@ metadata:
 services:
   web:
     project: ./src
+    language: js
     host: appservice
 hooks:
   postprovision:
