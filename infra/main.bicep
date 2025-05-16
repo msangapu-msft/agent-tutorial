@@ -37,6 +37,9 @@ resource webApp 'Microsoft.Web/sites@2022-09-01' = {
 
 resource deploymentSlot 'Microsoft.Web/sites/slots@2022-09-01' = {
   name: '${appName}/${slotName}'
+  dependsOn: [
+    webApp
+  ]
   location: location
   properties: {
     serverFarmId: appServicePlan.id
@@ -49,6 +52,9 @@ resource deploymentSlot 'Microsoft.Web/sites/slots@2022-09-01' = {
 
 resource logSettings 'Microsoft.Web/sites/config@2022-09-01' = {
   name: '${appName}/web'
+  dependsOn: [
+    webApp
+  ]
   properties: {
     applicationLogging: {
       fileSystem: {
