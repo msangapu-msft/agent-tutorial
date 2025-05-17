@@ -9,3 +9,4 @@ services:
 hooks:
   postprovision:
     run: ./azure/hooks/postprovision.sh
+    shell: sh
