@@ -4,7 +4,8 @@ set -e
 # ─── Variables ───────────────────────────────────────────────────────────────
 AZURE_ENV_NAME="my-sre-app-env"
 AZURE_LOCATION="centralus"
-AZURE_RESOURCE_GROUP="rg-my-sre-app-env"
+RAND=$(openssl rand -hex 3)  # 6-character random hex string
+AZURE_RESOURCE_GROUP="rg-my-sre-app-env-$RAND"
 
 # ─── 1) Ensure resource group exists ────────────────────────────────────────
 if ! az group show --name "$AZURE_RESOURCE_GROUP" &>/dev/null; then
