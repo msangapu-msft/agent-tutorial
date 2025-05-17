@@ -1,5 +1,5 @@
 @description('Name of the App Service app')
-param appName string = 'my-sre-app'
+param appName string = 'my-sre-app-${uniqueString(resourceGroup().id)}'
 
 @description('Name of the App Service Plan')
 param appServicePlanName string = '${appName}-plan'
