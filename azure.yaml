@@ -8,4 +8,4 @@ services:
     host: appservice
 hooks:
   postprovision:
-    shell: ./azure/hooks/postprovision.sh
+    run: ./azure/hooks/postprovision.sh
