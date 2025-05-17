@@ -26,6 +26,9 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-09-01' = {
 resource webApp 'Microsoft.Web/sites@2022-09-01' = {
   name: appName
   location: location
+  tags: {
+    'azd-service-name': 'web'
+  }
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
@@ -34,6 +37,7 @@ resource webApp 'Microsoft.Web/sites@2022-09-01' = {
     }
   }
 }
+
 
 resource deploymentSlot 'Microsoft.Web/sites/slots@2022-09-01' = {
   name: '${appName}/${slotName}'

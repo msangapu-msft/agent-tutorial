@@ -28,6 +28,13 @@ echo "Configuring azd environment values..."
 azd env set AZURE_LOCATION "$AZURE_LOCATION" --environment "$AZURE_ENV_NAME"
 azd env set AZURE_RESOURCE_GROUP "$AZURE_RESOURCE_GROUP" --environment "$AZURE_ENV_NAME"
 
-# ─── 4) Provision infra + deploy app ────────────────────────────────────────
+# ─── 4) Ensure postprovision.sh is executable ───────────────────────────────
+HOOK_SCRIPT=".azure/hooks/postprovision.sh"
+if [[ -f "$HOOK_SCRIPT" && ! -x "$HOOK_SCRIPT" ]]; then
+  echo "Making $HOOK_SCRIPT executable..."
+  chmod +x "$HOOK_SCRIPT"
+fi
+
+# ─── 5) Provision infra + deploy app ────────────────────────────────────────
 echo "Provisioning resources and deploying application..."
 azd up --environment "$AZURE_ENV_NAME" --no-prompt
