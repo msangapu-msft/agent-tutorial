@@ -1,0 +1,12 @@
+name: app-service-agent-tutorial
+metadata:
+  template: local
+services:
+  web:
+    project: ./src
+    language: static
+    host: appservice
+hooks:
+  postprovision:
+    run: ./.azure/hooks/postprovision.sh
+    shell: sh
